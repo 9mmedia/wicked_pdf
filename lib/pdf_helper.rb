@@ -4,8 +4,10 @@ module PdfHelper
 
   def self.included(base)
     base.class_eval do
-      alias_method_chain :render, :wicked_pdf
-      alias_method_chain :render_to_string, :wicked_pdf
+      # commenting these out because they conflict with remotiparts gem
+      # see: https://github.com/mileszs/wicked_pdf/issues/111
+      #alias_method_chain :render, :wicked_pdf
+      #alias_method_chain :render_to_string, :wicked_pdf
       after_filter :clean_temp_files
     end
   end
